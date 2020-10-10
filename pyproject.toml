@@ -11,7 +11,8 @@ classifiers = ["License :: OSI Approved :: MIT License"]
 description-file = "README.md"
 requires-python = "~=3.8"
 requires = [
-    "slackclient ~=2.9"
+    "aracnid-logger",
+    "python-dateutil ~=2.8"
 ]
 keywords = "utils"
 
