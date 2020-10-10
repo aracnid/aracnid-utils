@@ -1,4 +1,4 @@
-"""A simple customization of the Python Logging System.
+"""This package contains utilities that I use frequently.
 """
 from aracnid_utils.datetime_utils import timespan
 
