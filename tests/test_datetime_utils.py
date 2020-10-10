@@ -11,6 +11,7 @@ REF_BEGIN_STR = '2020-06-01T00:00:00-04:00'
 REF_THRU_STR = '2020-06-08T00:00:00-04:00'
 REF_BEGIN_ISO = '2020-W10'
 REF_THRU_ISO = '2020-W25'
+REF_WEEK_STR = '2020-W23'
 
 
 def test_timespan_args_begin_str_and_thru_str():
@@ -201,3 +202,51 @@ def test_timespan_args_begin_str_missing_and_thru_iso_week():
 
     assert isinstance(end, datetime)
     assert end == thru
+
+def test_timespan_args_week_str():
+    """Tests timespan argument: week_str.
+    """
+    start, end = timespan(week_str=REF_WEEK_STR)
+
+    assert isinstance(start, datetime)
+    assert start.isoformat() == REF_BEGIN_STR
+
+    assert isinstance(end, datetime)
+    assert end.isoformat() == REF_THRU_STR
+
+def test_timespan_args_week_str_and_begin_str():
+    """Tests timespan arguments: week_str, begin_str.
+    """
+    start, end = timespan(week_str=REF_THRU_ISO, begin_str=REF_BEGIN_STR)
+    thru = datetime.fromisocalendar(2020, 25, 1).astimezone() + timedelta(days=7)
+
+    assert isinstance(start, datetime)
+    assert start.isoformat() == REF_BEGIN_STR
+
+    assert isinstance(end, datetime)
+    assert end.isoformat() == thru.isoformat()
+
+def test_timespan_args_week_str_and_thru_str():
+    """Tests timespan arguments: week_str, thru_str.
+    """
+    start, end = timespan(week_str=REF_BEGIN_ISO, thru_str=REF_THRU_STR)
+    begin = datetime.fromisocalendar(2020, 10, 1).astimezone()
+
+    assert isinstance(start, datetime)
+    assert start.isoformat() == begin.isoformat()
+
+    assert isinstance(end, datetime)
+    assert end.isoformat() == REF_THRU_STR
+
+def test_timespan_args_week_str_and_begin_str_and_thru_str():
+    """Tests timespan arguments: week_str, begin_str, thru_str.
+
+    The week string is ignored in this case.
+    """
+    start, end = timespan(week_str=REF_WEEK_STR, begin_str=REF_BEGIN_STR, thru_str=REF_THRU_STR)
+
+    assert isinstance(start, datetime)
+    assert start.isoformat() == REF_BEGIN_STR
+
+    assert isinstance(end, datetime)
+    assert end.isoformat() == REF_THRU_STR

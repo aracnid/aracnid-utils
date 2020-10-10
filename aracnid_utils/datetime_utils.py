@@ -16,22 +16,26 @@ def timespan(**kwargs):
     The strings can be any parsable notation that results in a datetime object.
     This includes ISO Week Notation, e.g., "2020-W13".
 
-    If the start time is not specified, the minimum start time is returned.
-    If the end time is not specified, the current end time is returned.
+    If the begin time is not specified, the minimum start time is used.
+    If the thru time is not specified, the current time is used.
+    If a week string is specified, the start time and the thru time will default
+    to the week. The week string can be used in conjunction with either begin
+    time or thru time.
 
     Args:
         begin: Datetime object representing the start of the timespan.
         begin_str: String representing the start of the timespan.
         thru: Datetime object representing the end of the timespan.
         thru_str: String representing the end of the timespan.
+        week_str: String representing a single week.
 
     Returns:
         The start and end datetime objects that define the timespan.
     """
     begin_dt = kwargs.get('begin')
     thru_dt = kwargs.get('thru')
-    begin_str = kwargs.get('begin_str')
-    thru_str = kwargs.get('thru_str')
+    begin_str = kwargs.get('begin_str') or kwargs.get('week_str')
+    thru_str = kwargs.get('thru_str') or kwargs.get('week_str')
 
     # initialize week notation pattern
     pattern_isoweek = r'^\d{4}-W\d{2}$'
