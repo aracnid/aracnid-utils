@@ -2,4 +2,4 @@
 """
 from aracnid_utils.datetime_utils import timespan
 
-__version__ = '1.0.0-alpha.2'
+__version__ = '1.0.0-alpha.3'
