@@ -8,6 +8,36 @@ from dateutil.parser import parse
 
 START_MIN = datetime(2000, 1, 1, 0, 0).astimezone()
 
+def isoweek(datetime_obj):
+    """Calculates the ISO Week from the specified datetime object.
+
+    Args:
+        datetime_obj: Datetime object.
+
+    Returns:
+        The ISO Week.
+    """
+    year, week, _ = datetime_obj.isocalendar()
+    return f'{year}-W{week:02}'
+
+def fromisoweek(week_string):
+    """Calculates the datetime from the specified ISO Week string.
+
+    Args:
+        week_string: The ISO week string.
+
+    Returns:
+        The datetime object.
+    """
+    pattern_isoweek = r'^\d{4}-W\d{2}$'
+
+    if re.search(pattern_isoweek, week_string):
+        year = int(week_string[:4])
+        week = int(week_string[-2:])
+        return datetime.fromisocalendar(year, week, 1).astimezone()
+
+    return None
+
 def timespan(**kwargs):
     """Calculates the endpoints of a timespan.
 
