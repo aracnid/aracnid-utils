@@ -69,6 +69,7 @@ def timespan(**kwargs):
 
     # initialize week notation pattern
     pattern_isoweek = r'^\d{4}-W\d{2}$'
+    pattern_isodate_only = r'^\d{4}-\d{2}-\d{2}$'
 
     # convert string arguments
     if not begin_dt and begin_str:
@@ -91,7 +92,12 @@ def timespan(**kwargs):
             thru_dt += timedelta(days=7)
 
         else:
+            # parse the date string
             thru_dt = parse(thru_str).astimezone()
+
+            # adjust if time not specified
+            if re.search(pattern_isodate_only, thru_str):
+                thru_dt += timedelta(days=1)
 
     # check missing bounds
     if not begin_dt:
