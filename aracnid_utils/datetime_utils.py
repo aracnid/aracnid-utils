@@ -9,7 +9,7 @@ from pytz import timezone
 
 # initialize constants
 EST = timezone('US/Eastern')
-START_MIN = datetime(2000, 1, 1, 0, 0).astimezone(EST)
+START_MIN = EST.localize(datetime(2000, 1, 1, 0, 0))
 
 
 def isoweek(datetime_obj):
@@ -38,7 +38,7 @@ def fromisoweek(week_string):
     if re.search(pattern_isoweek, week_string):
         year = int(week_string[:4])
         week = int(week_string[-2:])
-        return datetime.fromisocalendar(year, week, 1).astimezone(EST)
+        return EST.localize(datetime.fromisocalendar(year, week, 1))
 
     return None
 
@@ -81,23 +81,34 @@ def timespan(**kwargs):
         if re.search(pattern_isoweek, begin_str):
             year_num = int(begin_str[:4])
             week_num = int(begin_str[-2:])
-            begin_dt = datetime.fromisocalendar(
-                year_num, week_num, 1).astimezone(EST)
+            begin_dt = EST.localize(
+                datetime.fromisocalendar(year_num, week_num, 1)
+            )
 
         else:
-            begin_dt = parse(begin_str).astimezone(EST)
+            dtx = parse(begin_str)
+            if dtx.tzinfo is None or dtx.tzinfo.utcoffset(dtx) is None:
+                begin_dt = EST.localize(dtx)
+            else:
+                begin_dt = dtx.astimezone(EST)
+
     if not thru_dt and thru_str:
         # check iso week notation
         if re.search(pattern_isoweek, thru_str):
             year_num = int(thru_str[:4])
             week_num = int(thru_str[-2:])
-            thru_dt = datetime.fromisocalendar(
-                year_num, week_num, 1).astimezone(EST)
+            thru_dt = EST.localize(
+                datetime.fromisocalendar(year_num, week_num, 1)
+            )
             thru_dt += timedelta(days=7)
 
         else:
             # parse the date string
-            thru_dt = parse(thru_str).astimezone(EST)
+            dtx = parse(thru_str)
+            if dtx.tzinfo is None or dtx.tzinfo.utcoffset(dtx) is None:
+                thru_dt = EST.localize(dtx)
+            else:
+                thru_dt = dtx.astimezone(EST)
 
             # adjust if time not specified
             if re.search(pattern_isodate_only, thru_str):
