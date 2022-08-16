@@ -2,4 +2,4 @@
 """
 from aracnid_utils.datetime_utils import timespan, isoweek, fromisoweek, EST
 
-__version__ = '1.0.0-alpha.6'
+__version__ = '1.0.0'
