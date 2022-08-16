@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "8b3a8ede73ed8ab30c3e72437440a8428889e4327af44d97030ba05fe7fb2785"
+            "sha256": "05ef9d64cc591de395cb663295ef960f140186cee23fa640b5030a9476e4ddb0"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -37,6 +37,14 @@
             "index": "pypi",
             "version": "==2.8.2"
         },
+        "pytz": {
+            "hashes": [
+                "sha256:220f481bdafa09c3955dfbdddb7b57780e9a94f5127e35456a48589b9e0c0197",
+                "sha256:cea221417204f2d1a2aa03ddae3e867921971d0d76f14d87abb4414415bbdcf5"
+            ],
+            "index": "pypi",
+            "version": "==2022.2.1"
+        },
         "six": {
             "hashes": [
                 "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926",
@@ -50,7 +58,7 @@
                 "sha256:0be5a3f54bb5c0cbeea79d6ffc7130ddf3ca21a81bb7ba5bc3b5de2a6da56e1d",
                 "sha256:c99bf8bca2f9fbe21a2712ae319f0a26a86f715d54f44de61d55bd0f8c3d4d5a"
             ],
-            "markers": "python_version >= '3.6'",
+            "markers": "python_full_version >= '3.6.0'",
             "version": "==1.14.3"
         },
         "slack-sdk": {
@@ -58,7 +66,7 @@
                 "sha256:63ce5e6253a31873d6c921c9feaa842a93a2f56e6e009cb7daf406f4bc4df798",
                 "sha256:a25d3d2bf0bf605d54d764d4a463fe7c0659ee24c13d75653e2bec247bd5998b"
             ],
-            "markers": "python_version >= '3.6'",
+            "markers": "python_full_version >= '3.6.0'",
             "version": "==3.18.1"
         }
     },
@@ -147,7 +155,7 @@
                 "sha256:6f62d78e2f89b4500b080fe3a81690850cd254227f27f75c3a0c491a1f351ba7",
                 "sha256:e8443a5e7a020e9d7f97f1d7d9cd17c88bcb3bc7e218bf9cf5095fe550be2951"
             ],
-            "markers": "python_version < '4' and python_full_version >= '3.6.1'",
+            "markers": "python_version < '4.0' and python_full_version >= '3.6.1'",
             "version": "==5.10.1"
         },
         "lazy-object-proxy": {
@@ -262,7 +270,7 @@
                 "sha256:7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983",
                 "sha256:8fefa2a1a1365bf5520aac41836fbee479da67864514bdb821f31ce07ce65349"
             ],
-            "markers": "python_version >= '3.7' and python_version < '4'",
+            "markers": "python_version >= '3.7' and python_version < '4.0'",
             "version": "==2.28.1"
         },
         "setuptools": {
@@ -294,7 +302,7 @@
                 "sha256:25d4e2e446c453be6360c67ddfb88838cfc42026322770ba13d1fbd403a93a5c",
                 "sha256:3235a9010fae54323e727c3ac06fb720752fe6635b3426e379daec60fbd44a83"
             ],
-            "markers": "python_version >= '3.6' and python_version < '4'",
+            "markers": "python_version >= '3.6' and python_version < '4.0'",
             "version": "==0.11.4"
         },
         "urllib3": {
@@ -302,7 +310,7 @@
                 "sha256:c33ccba33c819596124764c23a97d25f32b28433ba0dedeb77d873a38722c9bc",
                 "sha256:ea6e8fb210b19d950fab93b60c9009226c63a28808bc8386e05301e25883ac0a"
             ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4, 3.5' and python_version < '4'",
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4, 3.5' and python_version < '4.0'",
             "version": "==1.26.11"
         },
         "wrapt": {
