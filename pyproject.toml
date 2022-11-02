@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "aracnid-utils"
-version = "1.0.1"
+version = "1.0.2"
 description = "Common custom utility functions"
 authors = ["Jason Romano <aracnid@gmail.com>"]
 license = "MIT"
