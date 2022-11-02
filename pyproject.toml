@@ -1,22 +1,29 @@
+[tool.poetry]
+name = "aracnid-utils"
+version = "1.0.1"
+description = "Common custom utility functions"
+authors = ["Jason Romano <aracnid@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/aracnid/aracnid-config"
+keywords = ["python", "utils"]
+packages = [{include = "aracnid_utils"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+aracnid-logger = "^1.0"
+python-dateutil = "^2.8"
+pytz = "^2022.2"
+
+[tool.poetry.group.dev.dependencies]
+pylint = "^2.15"
+pytest = "^7.2"
+
 [build-system]
-requires = ["flit_core >=2,<4"]
-build-backend = "flit_core.buildapi"
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
 
-[tool.flit.metadata]
-module = "aracnid_utils"
-author = "Jason Romano"
-author-email = "aracnid@gmail.com"
-home-page = "https://github.com/aracnid/aracnid-utils"
-classifiers = ["License :: OSI Approved :: MIT License"]
-description-file = "README.md"
-requires-python = "~=3.8"
-requires = [
-    "aracnid-logger",
-    "python-dateutil ~=2.8"
-]
-keywords = "utils"
-
-[tools.flit.metadata.requires-extra]
-test = ["pytest ~=6.0"]
-build = ["flit ~=2.3"]
-dev = ["pylint ~=2.6"]
+[tool.pytest.ini_options]
+addopts = "-p no:warnings"
+log_cli = true
+log_cli_level = "DEBUG"
