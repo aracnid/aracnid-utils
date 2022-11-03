@@ -1,4 +1,4 @@
-* # Aracnid Utilities
+# Aracnid Utilities
 
 This package contains utilities that I use frequently.
 
@@ -16,7 +16,7 @@ This package supports the following version of Python. It probably supports olde
 
 Install the latest package using pip.
 
-```
+```bash
 $ pip install aracnid-utils
 ```
 
@@ -26,7 +26,7 @@ End with an example of getting some data out of the system or using it for a lit
 
 Explain how to run the automated tests for this system
 
-```
+```bash
 $ python -m pytest
 ```
 
